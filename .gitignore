@@ -1,0 +1,14 @@
+*~
+\#*
+\.\#*
+*.pyc
+*.egg-info/
+venv/
+\.coverage
+coverage.xml
+dist/
+build/
+db.sqlite3
+db.sqlite
+/attachments
+server/static/vendor
