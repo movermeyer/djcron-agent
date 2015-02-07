@@ -78,6 +78,5 @@ setup(
     ],
     extras_require={
         'redis': ['redis  >= 2.10.3'],
-        'package': ['wheel'],
     },
 )
