@@ -67,12 +67,12 @@ Remember this is just an agent. The `DJCron Server`_ is required in order to mak
     :alt: Number of PyPI downloads
 
 .. |travis a| image:: https://travis-ci.org/djcron-project/djcron-agent.png
-  :target: `Travis a`_
-  :alt: Travis results
+    :target: `Travis a`_
+    :alt: Travis results
 
 .. |coveralls a| image:: https://coveralls.io/repos/djcron-project/djcron-agent/badge.png
-  :target: `Coveralls a`_
-  :alt: Coveralls results
+    :target: `Coveralls a`_
+    :alt: Coveralls results
 
 .. _`Travis a`: https://travis-ci.org/djcron-project/djcron-agent
 .. _`Coveralls a`: https://coveralls.io/r/djcron-project/djcron-agent
