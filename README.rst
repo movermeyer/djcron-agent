@@ -35,7 +35,7 @@ It is already configured with basic settings to allow you to start using it. Jus
 
 .. code::
 
-     python manage.py celery worker --config=agent_settings --autoreload --queues=cron.agent
+     python manage.py celery worker --config=djcron_agent/settings --autoreload --queues=cron.agent
 
 Easy!
 
