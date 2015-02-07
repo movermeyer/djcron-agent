@@ -1,5 +1,4 @@
-__version__ = (0, 0, 2)
-str_version = '.'.join(str(x) for x in __version__)
+__version__ = (0, 0, 5)
 
 
 class APP:
