@@ -76,7 +76,8 @@ setup(
         'celery >= 3.1.12',
         'psutil >= 2.1.3',
     ],
-    extras_require=[
-        'redis  >= 2.10.3',
-    ],
+    extras_require={
+        'redis': ['redis  >= 2.10.3'],
+        'package': ['wheel'],
+    },
 )
