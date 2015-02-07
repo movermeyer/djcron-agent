@@ -49,7 +49,7 @@ setup(
     long_description=read_file('README.rst'),
     cmdclass={'test': PyTest},
     classifiers=[
-        'Development Status :: 5 - Production/Stable',
+        'Development Status :: 4 - Beta',
         'Programming Language :: Python :: 2.6',
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3.2',
@@ -63,7 +63,7 @@ setup(
     keywords='distributed cron',
     author='Miguel Ángel García',
     author_email='miguelangel.garcia@gmail.com',
-    url='https://github.com/magmax/djcron',
+    url='https://github.com/djcron-project/djcron-agent',
     license='Affero',
     packages=find_packages(exclude=['tests']),
     include_package_data=True,
@@ -75,6 +75,8 @@ setup(
     install_requires=[
         'celery >= 3.1.12',
         'psutil >= 2.1.3',
+    ],
+    extras_require=[
         'redis  >= 2.10.3',
     ],
 )
