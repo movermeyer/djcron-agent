@@ -47,9 +47,9 @@ Advisement
 Remember this is just an agent. The `DJCron Server`_ is required in order to make any action.
 
 
--- _`DJCron Project`: https://github.com/djcron-project
--- _`DJCron Server`: https://github.com/djcron-project/djcron-server
--- _`DJCron Agent`: https://github.com/djcron-project/djcron-agent
+.. _`DJCron Project`: https://github.com/djcron-project
+.. _`DJCron Server`: https://github.com/djcron-project/djcron-server
+.. _`DJCron Agent`: https://github.com/djcron-project/djcron-agent
 .. _`repository`: https://github.com/djcron-project/djcron-agent
 .. _`Celery`: http://www.celeryproject.org/
 .. _`RabbitMQ`: http://www.rabbitmq.com/
