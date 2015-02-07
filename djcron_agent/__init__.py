@@ -1,4 +1,4 @@
-from .tasks import (
+from .tasks import (  # noqa
     Result,
     Host,
     Output,

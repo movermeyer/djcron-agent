@@ -7,9 +7,11 @@ from setuptools.command.test import test as TestCommand
 
 MODULE = 'djcron_agent'
 
+
 def read_file(filename):
     with open(filename) as fd:
         return fd.read()
+
 
 def app_info():
     version_file = os.path.join(MODULE, 'versions.py')
