@@ -26,14 +26,14 @@ Installation
 
 Just use pip:
 
-..code::
+.. code::
 
     pip install djcron-agent
 
 
 It is already configured with basic settings to allow you to start using it. Just execute:
 
-..code::
+.. code::
 
      python manage.py celery worker --config=agent_settings --autoreload --queues=cron.agent
 
