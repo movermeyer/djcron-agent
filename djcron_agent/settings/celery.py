@@ -1,6 +1,6 @@
 from __future__ import absolute_import
 
-import logging
+import logging.config
 
 from kombu import Queue
 from celery import Celery
@@ -49,11 +49,6 @@ app.autodiscover_tasks((djcron_agent, ))
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": True,
-    "filters": {
-        "require_debug_false": {
-            "()": "django.utils.log.RequireDebugFalse"
-        }
-    },
     "formatters": {
         "complete": {
             "format": "%(levelname)s:%(asctime)s:%(module)s %(message)s"
@@ -66,10 +61,6 @@ LOGGING = {
         },
     },
     "handlers": {
-        "null": {
-            "level": "DEBUG",
-            "class": "django.utils.log.NullHandler",
-        },
         "console": {
             "level": "DEBUG",
             "class": "logging.StreamHandler",
