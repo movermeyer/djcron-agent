@@ -14,16 +14,16 @@ LOGGER = logging.getLogger(__name__)
 
 
 @celery.task.task(name='djcron_agent')
-def run_script(script=None, exec_id=None, *args, **kwargs):
-    LOGGER.debug('DATA: %s, %s, %s, %s', script, exec_id, args, kwargs)
+def run_script(script=None, celery_id=None, *args, **kwargs):
+    LOGGER.debug('DATA: %s, %s, %s, %s', script, celery_id, args, kwargs)
 
-    task = Task(script, exec_id)
+    task = Task(script, celery_id)
     return task.run()
 
 
 class Task  (object):
-    def __init__(self, script, exec_id):
-        self.exec_id = exec_id
+    def __init__(self, script, celery_id):
+        self.celery_id = celery_id
         self.script = script
 
         self.tmpfile = None
@@ -39,25 +39,25 @@ class Task  (object):
             LOGGER.debug('Success')
             return self._create_results()
         except Exception:
-            LOGGER.exception('[%s] Problem running the script' % self.exec_id)
+            LOGGER.exception('[%s] Problem running the script' % self.celery_id)
             raise
         finally:
             self._teardown()
 
     def _setup(self):
-        LOGGER.debug('[%s] Running script', self.exec_id)
+        LOGGER.debug('[%s] Running script', self.celery_id)
 
         self.tmpfile = tempfile.NamedTemporaryFile(delete=False)
         LOGGER.debug('[%s] Created temporal file %s',
-                     self.exec_id, self.tmpfile.name)
+                     self.celery_id, self.tmpfile.name)
 
         with open(self.tmpfile.name, 'w+') as fd:
             fd.write(self.script)
 
     def _run(self):
-        self.start = datetime.datetime.utcnow()
         command = "sh %s" % self.tmpfile.name
-        LOGGER.debug('[%s] Executing %s', self.exec_id, command)
+        LOGGER.debug('[%s] Executing %s', self.celery_id, command)
+        self.start = datetime.datetime.now()
         self.process = subprocess.Popen(
             command,
             stdout=subprocess.PIPE,
@@ -66,8 +66,8 @@ class Task  (object):
             shell=True)
 
         self.rc = self.process.wait()
-        self.end = datetime.datetime.utcnow()
-        LOGGER.debug('[%s] End %s', self.exec_id, command)
+        self.end = datetime.datetime.now()
+        LOGGER.debug('[%s] End %s', self.celery_id, command)
 
         self.stdout = self.process.stdout.read()
         self.stderr = self.process.stderr.read()
