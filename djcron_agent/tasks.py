@@ -57,7 +57,7 @@ class Task  (object):
     def _run(self):
         command = "sh %s" % self.tmpfile.name
         LOGGER.debug('[%s] Executing %s', self.celery_id, command)
-        self.start = datetime.datetime.now()
+        self.start = datetime.datetime.utcnow()
         self.process = subprocess.Popen(
             command,
             stdout=subprocess.PIPE,
@@ -66,7 +66,7 @@ class Task  (object):
             shell=True)
 
         self.rc = self.process.wait()
-        self.end = datetime.datetime.now()
+        self.end = datetime.datetime.utcnow()
         LOGGER.debug('[%s] End %s', self.celery_id, command)
 
         self.stdout = self.process.stdout.read()
