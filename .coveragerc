@@ -1,2 +1,2 @@
 [report]
-omit = djcron_agent/settings/*
+omit = djcron_agent/settings/*, djcron_agent/tests/*
