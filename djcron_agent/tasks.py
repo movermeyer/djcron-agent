@@ -5,6 +5,7 @@ import tempfile
 import logging
 import socket
 
+import pytz
 import celery
 
 from .types import Result, Host, Output, Timestamp
@@ -21,7 +22,7 @@ def run_script(script=None, celery_id=None, *args, **kwargs):
     return task.run()
 
 
-class Task  (object):
+class Task(object):
     def __init__(self, script, celery_id):
         self.celery_id = celery_id
         self.script = script
@@ -72,6 +73,12 @@ class Task  (object):
 
         self.stdout = self.process.stdout.read()
         self.stderr = self.process.stderr.read()
+
+        # fix times if necessary
+        if self.start.tzinfo is None:
+            self.start = self.start.replace(tzinfo=pytz.utc)
+        if self.end.tzinfo is None:
+            self.end = self.end.replace(tzinfo=pytz.utc)
 
     def _teardown(self):
         if self.tmpfile:

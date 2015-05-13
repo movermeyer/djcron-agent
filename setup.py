@@ -77,6 +77,7 @@ setup(
     install_requires=[
         'celery >= 3.1.12',
         'psutil >= 2.1.3',
+        'pytz   >= 2014.10',
     ],
     extras_require={
         'redis': ['redis  >= 2.10.3'],
