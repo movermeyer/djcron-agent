@@ -13,10 +13,11 @@ install:
   - python setup.py install
   - python setup.py develop
   - pip install flake8
+  - pip install pytest  # fixes a dependency problem
 
 script:
   - flake8 --statistics --count setup.py djcron_agent
-  - py.test
+  - python setup.py test
 
 after_success:
   - coveralls

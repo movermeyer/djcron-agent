@@ -39,7 +39,8 @@ class Task  (object):
             LOGGER.debug('Success')
             return self._create_results()
         except Exception:
-            LOGGER.exception('[%s] Problem running the script' % self.celery_id)
+            LOGGER.exception('[%s] Problem running the script'
+                             % self.celery_id)
             raise
         finally:
             self._teardown()
