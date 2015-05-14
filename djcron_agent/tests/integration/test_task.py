@@ -15,8 +15,8 @@ def test_task_basic_execution():
 
     assert result.host.fqdn == socket.getfqdn()
     assert result.output.rc == 0
-    assert result.output.stdout == 'foo\n'
-    assert result.output.stderr == ''
+    assert result.output.stdout == b'foo\n'
+    assert result.output.stderr == b''
     assert start_time <= result.timestamp.start <= end_time
     assert start_time <= result.timestamp.end <= end_time
     assert result.timestamp.start.tzinfo is not None
@@ -34,8 +34,8 @@ def test_task_failing():
 
     assert result.host.fqdn == socket.getfqdn()
     assert result.output.rc == 127
-    assert result.output.stdout == ''
-    assert 'not found' in result.output.stderr
+    assert result.output.stdout == b''
+    assert b'not found' in result.output.stderr
     assert start_time <= result.timestamp.start <= end_time
     assert start_time <= result.timestamp.end <= end_time
     assert result.timestamp.start.tzinfo is not None
