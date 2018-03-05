@@ -58,11 +58,11 @@ Remember this is just an agent. The `DJCron Server`_ is required in order to mak
 .. _`Django`: https://www.djangoproject.com/
 
 
-.. |pip version a| image:: https://pypip.in/v/djcron-agent/badge.png
+.. |pip version a| image:: https://img.shields.io/pypi/v/djcron-agent.svg
     :target: https://pypi.python.org/pypi/djcron-agent
     :alt: Latest PyPI version
 
-.. |pip downloads a| image:: https://pypip.in/d/djcron-agent/badge.png
+.. |pip downloads a| image:: https://img.shields.io/pypi/dm/djcron-agent.svg
     :target: https://pypi.python.org/pypi/djcron-agent
     :alt: Number of PyPI downloads
 
